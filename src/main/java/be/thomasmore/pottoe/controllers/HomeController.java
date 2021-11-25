@@ -21,9 +21,9 @@ public class HomeController {
         return "about";
     }
 
-    @GetMapping("/collectie/{set}")
-    public String collectie(Model model, @PathVariable String set){
-        model.addAttribute("set",set);
+    @GetMapping({"/collectie","/collectie/{set}"})
+    public String collectie(Model model, @PathVariable(required = false) String set){
+        model.addAttribute("set",(set!=null)? set : "oops kies iets uit de collectie");
         return "collectie";
     }
 
