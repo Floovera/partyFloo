@@ -1,12 +1,20 @@
 package be.thomasmore.pottoe.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Set {
 
+    @Id
     private int id;
     private String type;
     private String gemaaktdoor;
 
-    public Set(int id,String type, String gemaaktdoor) {
+    public Set() {
+    }
+
+    public Set(int id, String type, String gemaaktdoor) {
         this.id = id;
         this.type = type;
         this.gemaaktdoor = gemaaktdoor;

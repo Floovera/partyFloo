@@ -1,0 +1,1 @@
+insert into SET(ID,TYPE,GEMAAKTDOOR) values (1,'potjes','Bea')
