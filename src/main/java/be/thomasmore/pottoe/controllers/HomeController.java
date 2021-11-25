@@ -12,8 +12,8 @@ public class HomeController {
     private final String naam = "Floo";
     private final String[] sets = {"Tasjes","Potjes","Bordjes"};
     private final Set[] setso= {
-            new Set("tasjes","Ilse"),
-            new Set("bordjes","Bea")
+            new Set(0,"tasjes","Ilse"),
+            new Set(1,"bordjes","Bea")
     };
 
     @GetMapping("/home")
@@ -27,9 +27,11 @@ public class HomeController {
         return "about";
     }
 
-    @GetMapping({"/collectie","/collectie/{set}"})
-    public String collectie(Model model, @PathVariable(required = false) String set){
-        model.addAttribute("set",set);
+    @GetMapping({"/collectie","/collectie/{index}"})
+    public String collectie(Model model, @PathVariable(required = false) Integer index){
+        if(index != null && index >= 0 && index < setso.length){
+            model.addAttribute("set",setso[index]);
+        }
         return "collectie";
     }
 

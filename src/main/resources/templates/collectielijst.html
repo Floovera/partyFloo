@@ -14,11 +14,13 @@
     <div class="row1content">
         <h2>Collectie</h2>
         Hier vind je onze creaties.
+
         <div th:each="set: ${setso}">
             <a class="buttonLook mediumButton"
-               th:href="@{|/collectie/${set.getType()}|}"
-               th:text="${set.getType()}">venue name</a>
+               th:href="@{|/collectie/${set.getId()}|}"
+               th:text="${set.getType()}">name</a>
         </div>
+
     </div>
 </div>
 
