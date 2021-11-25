@@ -1,11 +1,22 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css"/>
-    <title>Welkom bij Pottoe</title>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css" />
+    <title>Let's Party!</title>
 </head>
+
 <body>
-<h1 th:text="${naam}">naam</h1>
+<div th:replace="fragments/header :: header">Header</div>
+
+<div class="row1">
+    <div class="row1content">
+        <h2>Welkom</h2>
+        Dit is de website voor Ilsje en Bea.
+    </div>
+</div>
+
 </body>
+
 </html>
