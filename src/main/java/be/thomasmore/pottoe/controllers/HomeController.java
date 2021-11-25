@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-    private String naam = "Floo";
+    private final String naam = "Floo";
 
     @GetMapping("/home")
     public String home(Model model){
