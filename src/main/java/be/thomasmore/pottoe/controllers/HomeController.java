@@ -1,5 +1,6 @@
 package be.thomasmore.pottoe.controllers;
 
+import be.thomasmore.pottoe.model.Set;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,10 @@ public class HomeController {
 
     private final String naam = "Floo";
     private final String[] sets = {"Tasjes","Potjes","Bordjes"};
+    private final Set[] setso= {
+            new Set("tasjes","Ilse"),
+            new Set("bordjes","Bea")
+    };
 
     @GetMapping("/home")
     public String home(Model model){
@@ -30,7 +35,7 @@ public class HomeController {
 
     @GetMapping("/collectielijst")
     public String collectielijst(Model model){
-        model.addAttribute("sets",sets);
+        model.addAttribute("setso",setso);
         return "collectielijst";
     }
 
