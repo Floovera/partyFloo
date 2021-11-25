@@ -23,7 +23,7 @@ public class HomeController {
 
     @GetMapping({"/collectie","/collectie/{set}"})
     public String collectie(Model model, @PathVariable(required = false) String set){
-        model.addAttribute("set",(set!=null)? set : "oops kies iets uit de collectie");
+        model.addAttribute("set",set);
         return "collectie";
     }
 
