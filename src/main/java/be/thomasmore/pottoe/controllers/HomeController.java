@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class HomeController {
 
     private final String naam = "Floo";
+    private final String[] sets = {"Tasjes","Potjes","Bordjes"};
 
     @GetMapping("/home")
     public String home(Model model){
@@ -28,7 +29,8 @@ public class HomeController {
     }
 
     @GetMapping("/collectielijst")
-    public String collectielijst(){
+    public String collectielijst(Model model){
+        model.addAttribute("sets",sets);
         return "collectielijst";
     }
 

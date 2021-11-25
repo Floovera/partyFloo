@@ -14,6 +14,11 @@
     <div class="row1content">
         <h2>Collectie</h2>
         Hier vind je onze creaties.
+        <div th:each="set: ${sets}">
+            <a class="buttonLook mediumButton"
+               th:href="@{|/collectie/${set}|}"
+               th:text="${set}">venue name</a>
+        </div>
     </div>
 </div>
 
