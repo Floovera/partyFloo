@@ -27,4 +27,9 @@ public class HomeController {
         return "collectie";
     }
 
+    @GetMapping("/collectielijst")
+    public String collectielijst(){
+        return "collectielijst";
+    }
+
 }
