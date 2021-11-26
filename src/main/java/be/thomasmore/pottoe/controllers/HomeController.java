@@ -29,6 +29,11 @@ public class HomeController {
         return "about";
     }
 
+    @GetMapping("/collectiebyid")
+    public String collectie(Model model){
+        return "collectie";
+    }
+
     @GetMapping("/collectiebyid/{id}")
     public String collectiebyid(Model model, @PathVariable(required = false) Integer id){
 
