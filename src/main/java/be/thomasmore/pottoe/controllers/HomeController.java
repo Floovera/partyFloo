@@ -33,17 +33,8 @@ public class HomeController {
         return "about";
     }
 
-    @GetMapping({"/collectie","/collectie/{index}"})
-    public String collectie(Model model, @PathVariable(required = false) Integer index){
-        if(index != null && index >= 0 && index < setso.length){
-            model.addAttribute("set",setso[index]);
-        }
-        return "collectie";
-    }
-
     @GetMapping("/collectiebyid/{id}")
     public String collectiebyid(Model model, @PathVariable(required = false) Integer id){
-
 
         Optional<Set> optionalSet = setRepository.findById(id);
         if (optionalSet.isPresent()) {
