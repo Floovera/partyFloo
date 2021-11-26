@@ -14,10 +14,6 @@ import java.util.Optional;
 public class HomeController {
 
     private final String naam = "Floo";
-    private final Set[] setso= {
-            new Set(0,"tasjes","Ilse"),
-            new Set(1,"bordjes","Bea")
-    };
     @Autowired
     private SetRepository setRepository;
 
