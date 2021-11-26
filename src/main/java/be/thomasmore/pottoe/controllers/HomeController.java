@@ -39,11 +39,18 @@ public class HomeController {
         return "collectie";
     }
 
+    @GetMapping("/collectiebyid/{id}")
+    public String collectiebyid(Model model, @PathVariable(required = false) Integer id){
+        model.addAttribute("set",setRepository.findById(id).get());
+        return "collectie";
+    }
+
     @GetMapping("/collectielijst")
     public String collectielijst(Model model){
         Iterable<Set> setr = setRepository.findAll();
         model.addAttribute("setr",setr);
         return "collectielijst";
     }
+
 
 }
