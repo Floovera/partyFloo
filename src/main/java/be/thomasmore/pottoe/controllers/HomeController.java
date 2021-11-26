@@ -1,6 +1,8 @@
 package be.thomasmore.pottoe.controllers;
 
 import be.thomasmore.pottoe.model.Set;
+import be.thomasmore.pottoe.repositories.SetRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,9 @@ public class HomeController {
             new Set(0,"tasjes","Ilse"),
             new Set(1,"bordjes","Bea")
     };
+    @Autowired
+    private SetRepository setRepository;
+
 
     @GetMapping("/home")
     public String home(Model model){
@@ -36,7 +41,8 @@ public class HomeController {
 
     @GetMapping("/collectielijst")
     public String collectielijst(Model model){
-        model.addAttribute("setso",setso);
+        Iterable<Set> setr = setRepository.findAll();
+        model.addAttribute("setr",setr);
         return "collectielijst";
     }
 

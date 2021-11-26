@@ -15,7 +15,7 @@
         <h2>Collectie</h2>
         Hier vind je onze creaties.
 
-        <div th:each="set: ${setso}">
+        <div th:each="set: ${setr}">
             <a class="buttonLook mediumButton"
                th:href="@{|/collectie/${set.getId()}|}"
                th:text="${set.getType()}">name</a>
