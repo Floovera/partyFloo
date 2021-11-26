@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.Optional;
+
 @Controller
 public class HomeController {
 
@@ -41,7 +43,15 @@ public class HomeController {
 
     @GetMapping("/collectiebyid/{id}")
     public String collectiebyid(Model model, @PathVariable(required = false) Integer id){
-        model.addAttribute("set",setRepository.findById(id).get());
+
+
+        Optional<Set> optionalSet = setRepository.findById(id);
+        if (optionalSet.isPresent()) {
+            long nrOfSets = setRepository.count();
+            model.addAttribute("set", optionalSet.get());
+            model.addAttribute("prevId", id > 1 ? id - 1 : nrOfSets);
+            model.addAttribute("nextId", id < nrOfSets ? id + 1 : 1);
+        }
         return "collectie";
     }
 
