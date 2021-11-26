@@ -18,7 +18,7 @@ public class HomeController {
     private SetRepository setRepository;
 
 
-    @GetMapping("/home")
+    @GetMapping({"/", "/home"})
     public String home(Model model){
         model.addAttribute("naam",naam);
         return "home";
