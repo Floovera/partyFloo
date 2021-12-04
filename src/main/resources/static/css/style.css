@@ -32,6 +32,11 @@ h2 {
     font-size: 2em;
 }
 
+h3{
+    margin: 20px 0;
+    font-size: 1em;
+}
+
 p {
     padding: 10px 50px;
 }
@@ -218,4 +223,29 @@ a.linkLook:hover {
     height: 300px;
     padding: 60px 0;
     text-align: center;
+}
+
+input.buttonLook {
+    background-color: #EDC7CF;
+    color: #6A8E7F;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 1px 1px 1px darkgrey;
+}
+
+input.filterButton {
+    margin: 20px 0;
+    padding: .5em;
+    border: none;
+    font-size: medium;
+}
+
+input.buttonLook:hover {
+    background-color: #6A8E7F;
+    color: #EDC7CF;
+}
+
+input.buttonLook:active {
+    background-color: #6A8E7F;
+    color: #EDC7CF;
 }

@@ -1,3 +1,3 @@
-insert into SET(ID,TYPE,GEMAAKTDOOR) values (1,'potjes','Bea')
-insert into SET(ID,TYPE,GEMAAKTDOOR) values (2,'tasjes','Ilse')
-insert into SET(ID,TYPE,GEMAAKTDOOR) values (3,'schaaltjes','Bea')
+insert into SET(ID,NAME,TYPE,GEMAAKTDOOR) values (1,'Kerst in Antwerpen','borden','Bea')
+insert into SET(ID,NAME,TYPE,GEMAAKTDOOR) values (2,'Ochtendgloed','tasjes','Ilse')
+insert into SET(ID,NAME,TYPE,GEMAAKTDOOR) values (3,'Ginger','potjes','Bea')

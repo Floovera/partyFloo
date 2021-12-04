@@ -2,16 +2,22 @@ package be.thomasmore.pottoe.controllers;
 
 import be.thomasmore.pottoe.model.Set;
 import be.thomasmore.pottoe.repositories.SetRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class CollectieController {
+
+    private Logger logger = LoggerFactory.getLogger(CollectieController.class);
 
     @Autowired
     private SetRepository setRepository;
@@ -34,23 +40,24 @@ public class CollectieController {
         return "set";
     }
 
-    @GetMapping("/collectielijst")
-    public String collectielijst(Model model){
-        Iterable<Set> setr = setRepository.findAll();
-        long nrOfItems = setRepository.count();
-        model.addAttribute("nrOfItems", nrOfItems);
+    @GetMapping("/collectie")
+    public String collectie(Model model){
+        List<Set> setr = setRepository.findAllBy();
+        model.addAttribute("nrOfItems", setr.size());
         model.addAttribute("setr",setr);
-        return "collectielijst";
+        return "collectie";
     }
 
-    @GetMapping("/collectielijst/filter")
-    public String venueListFilter(Model model) {
-        Iterable<Set> setr = setRepository.findAll();
-        long nrOfItems = setRepository.count();
-        model.addAttribute("nrOfItems", nrOfItems);
+    @GetMapping("/collectie/filter")
+    public String collectieFilter(Model model, @RequestParam(required = false) String type) {
+        logger.info(String.format("collectieFilter -- type=%s", type));
+        List<Set> setr = setRepository.findByType(type);
+
+        model.addAttribute("nrOfItems", setr.size());
         model.addAttribute("setr", setr);
         model.addAttribute("showFilters", true);
-        return "collectielijst";
+        model.addAttribute("type",type);
+        return "collectie";
     }
 
 }
