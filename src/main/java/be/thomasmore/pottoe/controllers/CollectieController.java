@@ -16,13 +16,13 @@ public class CollectieController {
     @Autowired
     private SetRepository setRepository;
 
-    @GetMapping("/collectiebyid")
-    public String collectie(Model model){
-        return "collectie";
+    @GetMapping("/setbyid")
+    public String set(Model model){
+        return "set";
     }
 
-    @GetMapping("/collectiebyid/{id}")
-    public String collectiebyid(Model model, @PathVariable(required = false) Integer id){
+    @GetMapping("/setbyid/{id}")
+    public String setbyid(Model model, @PathVariable(required = false) Integer id){
 
         Optional<Set> optionalSet = setRepository.findById(id);
         if (optionalSet.isPresent()) {
@@ -31,7 +31,7 @@ public class CollectieController {
             model.addAttribute("prevId", id > 1 ? id - 1 : nrOfSets);
             model.addAttribute("nextId", id < nrOfSets ? id + 1 : 1);
         }
-        return "collectie";
+        return "set";
     }
 
     @GetMapping("/collectielijst")

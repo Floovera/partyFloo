@@ -27,7 +27,7 @@
 
         <div th:each="set: ${setr}">
             <a class="buttonLook mediumButton"
-               th:href="@{|/collectiebyid/${set.getId()}|}"
+               th:href="@{|/setbyid/${set.getId()}|}"
                th:text="${set.getType()}">name</a>
         </div>
 
