@@ -41,4 +41,12 @@ public class CollectieController {
         return "collectielijst";
     }
 
+    @GetMapping("/collectielijst/filter")
+    public String venueListFilter(Model model) {
+        Iterable<Set> setr = setRepository.findAll();
+        model.addAttribute("setr", setr);
+        model.addAttribute("showFilters", true);
+        return "collectielijst";
+    }
+
 }
