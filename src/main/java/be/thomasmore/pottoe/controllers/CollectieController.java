@@ -37,6 +37,8 @@ public class CollectieController {
     @GetMapping("/collectielijst")
     public String collectielijst(Model model){
         Iterable<Set> setr = setRepository.findAll();
+        long nrOfItems = setRepository.count();
+        model.addAttribute("nrOfItems", nrOfItems);
         model.addAttribute("setr",setr);
         return "collectielijst";
     }
@@ -44,6 +46,8 @@ public class CollectieController {
     @GetMapping("/collectielijst/filter")
     public String venueListFilter(Model model) {
         Iterable<Set> setr = setRepository.findAll();
+        long nrOfItems = setRepository.count();
+        model.addAttribute("nrOfItems", nrOfItems);
         model.addAttribute("setr", setr);
         model.addAttribute("showFilters", true);
         return "collectielijst";

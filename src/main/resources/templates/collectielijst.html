@@ -13,7 +13,7 @@
 <div class="row1">
     <div class="row1content">
         <h2>Collectie</h2>
-        Hier vind je onze creaties.
+        <div th:text="|${nrOfItems} setjes gevonden|">10 items</div>
 
         <div th:unless="${showFilters}" class="filters">
             <a class="buttonLook filterButton" th:href="@{/collectielijst/filter}">filter</a>
