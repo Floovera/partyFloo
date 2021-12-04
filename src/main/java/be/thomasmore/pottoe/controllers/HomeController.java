@@ -14,8 +14,7 @@ import java.util.Optional;
 public class HomeController {
 
     private final String naam = "Floo";
-    @Autowired
-    private SetRepository setRepository;
+
 
 
     @GetMapping({"/", "/home"})
@@ -29,30 +28,6 @@ public class HomeController {
         return "about";
     }
 
-    @GetMapping("/collectiebyid")
-    public String collectie(Model model){
-        return "collectie";
-    }
-
-    @GetMapping("/collectiebyid/{id}")
-    public String collectiebyid(Model model, @PathVariable(required = false) Integer id){
-
-        Optional<Set> optionalSet = setRepository.findById(id);
-        if (optionalSet.isPresent()) {
-            long nrOfSets = setRepository.count();
-            model.addAttribute("set", optionalSet.get());
-            model.addAttribute("prevId", id > 1 ? id - 1 : nrOfSets);
-            model.addAttribute("nextId", id < nrOfSets ? id + 1 : 1);
-        }
-        return "collectie";
-    }
-
-    @GetMapping("/collectielijst")
-    public String collectielijst(Model model){
-        Iterable<Set> setr = setRepository.findAll();
-        model.addAttribute("setr",setr);
-        return "collectielijst";
-    }
 
 
 }
