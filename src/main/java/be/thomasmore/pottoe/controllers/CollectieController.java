@@ -1,6 +1,8 @@
 package be.thomasmore.pottoe.controllers;
 
+import be.thomasmore.pottoe.model.Creation;
 import be.thomasmore.pottoe.model.Set;
+import be.thomasmore.pottoe.repositories.CreationRepository;
 import be.thomasmore.pottoe.repositories.SetRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,9 +24,12 @@ public class CollectieController {
     @Autowired
     private SetRepository setRepository;
 
+    @Autowired
+    private CreationRepository creationRepository;
+
     @GetMapping("/setbyid")
     public String set(Model model){
-        return "set";
+        return "setdetails";
     }
 
 
@@ -37,8 +42,10 @@ public class CollectieController {
             model.addAttribute("set", optionalSet.get());
             model.addAttribute("prevId", id > 1 ? id - 1 : nrOfSets);
             model.addAttribute("nextId", id < nrOfSets ? id + 1 : 1);
+            Iterable<Creation> creations = creationRepository.findBySet(optionalSet.get());
+            model.addAttribute("creations", creations);
         }
-        return "set";
+        return "setdetails";
     }
 
     @GetMapping("/collectie")

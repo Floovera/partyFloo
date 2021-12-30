@@ -13,7 +13,6 @@ public class Creation {
     private String name;
     private String extraInfo;
     private String type;
-    private Integer price;
     @ManyToOne
     private Creator creator;
     private Date addedOn;
@@ -53,14 +52,6 @@ public class Creation {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
     }
 
     public Creator getCreator() {

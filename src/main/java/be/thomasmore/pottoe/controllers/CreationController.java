@@ -33,8 +33,6 @@ public class CreationController {
         if (optionalCreation.isPresent()) {
             long nrOfCreations = creationRepository.count();
             model.addAttribute("creation", optionalCreation.get());
-            model.addAttribute("prevId", id > 1 ? id - 1 : nrOfCreations);
-            model.addAttribute("nextId", id < nrOfCreations ? id + 1 : 1);
         }
         return "creationdetails";
     }

@@ -12,4 +12,6 @@ public interface SetRepository extends CrudRepository<Set,Integer> {
 
     @Query("select s from Set s WHERE :type IS NULL OR (UPPER(s.type) LIKE UPPER(CONCAT('%', :type, '%')))")
     List<Set> findByType(@Param("type")String type);
+
+
 }

@@ -10,14 +10,9 @@ public class Set {
     private int id;
     private String name;
     private String type;
+    private int price;
 
     public Set() {
-    }
-
-    public Set(int id, String name, String type) {
-        this.id = id;
-        this.name = name;
-        this.type = type;
     }
 
     public int getId() {
@@ -42,5 +37,13 @@ public class Set {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

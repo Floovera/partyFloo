@@ -14,21 +14,9 @@
 
     <div class="row1content" th:if="${creation}">
 
-
-        <div class="prevButtonDiv">
-            <a class="buttonLook smallButton" th:href="@{|/creationdetails/${prevId}|}">&lt;</a>
-        </div>
-        <div class="nextButtonDiv">
-            <a class="buttonLook smallButton" th:href="@{|/creationdetails/${nextId}|}">&gt;</a>
-        </div>
-
         <h2 th:text="${creation.name}">naam</h2>
 
         <div class="venueinfo">
-            <div class="infoLine">
-                <div class="infoLineName">Prijs:</div>
-                <div class="infoLineValue" th:text="${creation.price}">price</div>
-            </div>
             <div class="infoLine" th:if="${creation.extraInfo}">
                 <div class="infoLineName">Extra info</div>
                 <div class="infoLineValue" th:text="${creation.extraInfo}">extraInfo</div>
@@ -38,6 +26,7 @@
                 <div class="infoLineValue" th:text="${creation.getCreator().getName()}">creator</div>
             </div>
         </div>
+
     </div>
 
 

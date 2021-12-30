@@ -15,6 +15,23 @@
     <div class="row1content" th:if="${set}">
         <h2 th:text="${set.name}">naam</h2>
 
+        <div class="venueinfo">
+        <div class="infoLine">
+            <div class="infoLineName">Prijs:</div>
+            <div class="infoLineValue" th:text="${set.price}">price</div>
+        </div>
+        <div class="infoLine">
+            <div class="infoLineName">Creaties:</div>
+            <div class="venuelist">
+                <div th:each="creation:${creations}">
+                    <a class="buttonLook mediumButton" th:href="@{|/creationdetails/${creation.id}|}">
+                        <span th:text="${creation.name}">creation name </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+
         <div class="prevButtonDiv">
             <a class="buttonLook smallButton" th:href="@{|/setbyid/${prevId}|}">&lt;</a>
         </div>

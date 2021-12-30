@@ -9,5 +9,5 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface CreationRepository extends CrudRepository<Creation,Integer> {
-
+    Iterable<Creation> findBySet(Set set);
 }
