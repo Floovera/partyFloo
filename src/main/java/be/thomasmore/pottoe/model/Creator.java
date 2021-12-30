@@ -4,20 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Set {
+public class Creator {
 
     @Id
     private int id;
     private String name;
-    private String type;
+    private String email;
 
-    public Set() {
-    }
-
-    public Set(int id, String name, String type) {
-        this.id = id;
-        this.name = name;
-        this.type = type;
+    public Creator() {
     }
 
     public int getId() {
@@ -36,11 +30,11 @@ public class Set {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
+    public String getEmail() {
+        return email;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
