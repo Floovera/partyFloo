@@ -1,0 +1,51 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css" />
+    <title>Let's Party!</title>
+</head>
+
+<body>
+<div th:replace="fragments/header :: header">Header</div>
+
+<div class="row1">
+
+    <div class="row1content" th:if="${creation}">
+
+
+        <div class="prevButtonDiv">
+            <a class="buttonLook smallButton" th:href="@{|/creationdetails/${prevId}|}">&lt;</a>
+        </div>
+        <div class="nextButtonDiv">
+            <a class="buttonLook smallButton" th:href="@{|/creationdetails/${nextId}|}">&gt;</a>
+        </div>
+
+        <h2 th:text="${creation.name}">naam</h2>
+
+        <div class="venueinfo">
+            <div class="infoLine">
+                <div class="infoLineName">Prijs:</div>
+                <div class="infoLineValue" th:text="${creation.price}">price</div>
+            </div>
+            <div class="infoLine" th:if="${creation.extraInfo}">
+                <div class="infoLineName">Extra info</div>
+                <div class="infoLineValue" th:text="${creation.extraInfo}">extraInfo</div>
+            </div>
+            <div class="infoLine">
+                <div class="infoLineName">Gemaakt door:</div>
+                <div class="infoLineValue" th:text="${creation.getCreator().getName()}">creator</div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row1content" th:unless="${creation}">
+        <h2>oops geen creatie geselecteerd</h2>
+    </div>
+</div>
+
+</body>
+</html>
