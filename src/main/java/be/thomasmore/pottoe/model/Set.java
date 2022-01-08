@@ -15,6 +15,10 @@ public class Set {
     public Set() {
     }
 
+    public Set(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }

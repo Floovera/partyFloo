@@ -1,0 +1,53 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css" />
+    <title>Let's Party!</title>
+</head>
+
+<body>
+<div th:replace="fragments/header :: header">Header</div>
+
+<div class="row1">
+
+    <div class="row1content" th:if="${creation}">
+
+        <form th:action="@{|/creationedit/${creation.id}|}" th:object="${creation}" method="post">
+            <div class="onefilter">
+                <label for="creationName" class="filtername">Naam creatie:</label>
+                <input id="creationName" th:field="*{name}">
+            </div>
+            <div class="infoLine">
+                <label for="creationCreator" class="infoLineName">Gemaakt door: </label>
+                <select id="creationCreator" th:name="creatorId" class="infoLineValue">
+                    <option th:each="ct:${creators}" th:value="${ct.id}"
+                            th:text="${ct.name}" th:selected="${ct.id==creation.creator.id}">
+                        one creator
+                    </option>
+                </select>
+            </div>
+            <div class="infoLine">
+                <label for="creationSet" class="infoLineName">Set: </label>
+                <select id="creationSet" th:name="setId" class="infoLineValue">
+                    <option th:each="s:${sets}" th:value="${s.id}"
+                            th:text="${s.name}" th:selected="${s.id==creation.set.id}">
+                        one set
+                    </option>
+                </select>
+            </div>
+            <div class="onefilter">
+                <input type="submit" value="save" class="buttonLook filterButton">
+            </div>
+        </form>
+
+    </div>
+
+    <div class="row1content" th:unless="${creation}">
+        <h2>oops geen creatie geselecteerd</h2>
+    </div>
+</div>
+
+</body>
+</html>

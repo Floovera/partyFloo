@@ -14,6 +14,10 @@ public class Creator {
     public Creator() {
     }
 
+    public Creator(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }
