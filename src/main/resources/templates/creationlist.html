@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css"/>
-    <title>Let's Party!</title>
+    <title>Pottoe</title>
 </head>
 <body>
 <div th:replace="fragments/header :: header">Header</div>
@@ -17,7 +17,7 @@
         <div class="cols2">
 
             <div th:unless="${showFilters}" class="filters">
-                <a class="buttonLook filterButton" th:href="@{/creationlist/filter}">filter</a>
+                <a class="buttonLook filterButton" th:href="@{/creationlist/filter}">Filteren</a>
             </div>
 
             <div th:if="${showFilters}" class="filters">
@@ -29,7 +29,7 @@
                         <input type="text" id="type" name="type" th:value="${type}" value="0">
                     </div>
                     <div class="onefilter">
-                        <input type="submit" value="search" class="buttonLook filterButton">
+                        <input type="submit" value="Zoek" class="buttonLook filterButton">
                     </div>
                 </form>
             </div>

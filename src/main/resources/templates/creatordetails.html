@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css" />
-    <title>Let's Party!</title>
+    <title>Pottoe</title>
 </head>
 
 <body>
@@ -21,9 +21,21 @@
                 <div class="infoLineName">Email</div>
                 <div class="infoLineValue" th:text="${creator.email}">email</div>
             </div>
-        </div>
 
-    </div>
+         </div>
+
+        <div class="venueinfo">
+
+            <h2>Creaties</h2>
+            <div th:each="creation: ${creations}">
+                <a class="buttonLook mediumButton"
+                   th:href="@{|/creationdetails/${creation.getId()}|}">
+                    <span th:text="${creation.name}">creation name </span>
+                    <img th:src="@{|/${creation.imgSource}|}" alt="Foto">
+                </a>
+            </div>
+
+        </div>
 
     <div class="row1content" th:unless="${creator}">
         <h2>oops geen maker geselecteerd</h2>
