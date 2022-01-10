@@ -15,10 +15,9 @@
     <div class="row1content">
         <h2>Over ons</h2>
         <div class="cols2">
-            <div class="filters"></div>
-            <div class="venuelist">
-                <div th:each="creator:${creators}">
-                    <a class="buttonLook mediumButton">
+            <div class="creatorlist">
+                <div class="card" th:each="creator:${creators}">
+                    <a class="buttonLook mediumButton" th:href="@{|/creatordetails/${creator.id}|}">
                         <span th:text="${creator.name}">creator name </span>
                         <img th:src="@{|/${creator.imgSource}|}" alt="Foto">
                     </a>
