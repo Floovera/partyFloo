@@ -11,13 +11,13 @@ public class Creation {
     @Id
     private int id;
     private String name;
+    private String imgSource;
     private String extraInfo;
+    private double price;
     private String type;
     @ManyToOne
     private Creator creator;
     private Date addedOn;
-    @ManyToOne
-    private Set set;
 
     public Creation() {
     }
@@ -38,6 +38,10 @@ public class Creation {
         this.name = name;
     }
 
+    public String getImgSource() { return imgSource; }
+
+    public void setImgSource(String imgSource) { this.imgSource = imgSource; }
+
     public String getExtraInfo() {
         return extraInfo;
     }
@@ -45,6 +49,10 @@ public class Creation {
     public void setExtraInfo(String extraInfo) {
         this.extraInfo = extraInfo;
     }
+
+    public double getPrice() {return price;}
+
+    public void setPrice(double price) {this.price = price;}
 
     public String getType() {
         return type;
@@ -70,11 +78,4 @@ public class Creation {
         this.addedOn = addedOn;
     }
 
-    public Set getSet() {
-        return set;
-    }
-
-    public void setSet(Set set) {
-        this.set = set;
-    }
 }

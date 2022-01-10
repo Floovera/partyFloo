@@ -2,10 +2,8 @@ package be.thomasmore.pottoe.controllers;
 
 import be.thomasmore.pottoe.model.Creation;
 import be.thomasmore.pottoe.model.Creator;
-import be.thomasmore.pottoe.model.Set;
 import be.thomasmore.pottoe.repositories.CreationRepository;
 import be.thomasmore.pottoe.repositories.CreatorRepository;
-import be.thomasmore.pottoe.repositories.SetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,13 +18,10 @@ public class CreationController {
     private CreationRepository creationRepository;
 
     @Autowired
-    private SetRepository setRepository;
-
-    @Autowired
     private CreatorRepository creatorRepository;
 
     @GetMapping("/creationlist")
-    public String partyList(Model model) {
+    public String creationList(Model model) {
         Iterable<Creation> creations = creationRepository.findAll();
         model.addAttribute("creations", creations);
         return "creationlist";
@@ -52,7 +47,6 @@ public class CreationController {
         Optional<Creation> optionalCreation = creationRepository.findById(id);
         if (optionalCreation.isPresent()) {
             model.addAttribute("creation", optionalCreation.get());
-            model.addAttribute("sets", setRepository.findAll());
             model.addAttribute("creators", creatorRepository.findAll());
 
         }
@@ -77,7 +71,6 @@ public class CreationController {
     @GetMapping("/creationnew")
     public String partyNew(Model model) {
         model.addAttribute("creation", new Creation());
-        model.addAttribute("sets", setRepository.findAll());
         model.addAttribute("creators", creatorRepository.findAll());
         return "creationnew";
     }
@@ -85,9 +78,8 @@ public class CreationController {
     @PostMapping("/creationnew")
     public String creationNewPost(Model model,
                                @ModelAttribute("creation") Creation creation,
-                               @RequestParam int setId, @RequestParam int creatorId) {
+                               @RequestParam int creatorId) {
 
-        creation.setSet(new Set(setId));
         creation.setCreator(new Creator(creatorId));
         Creation newCreation = creationRepository.save(creation);
         return "redirect:/creationdetails/" + newCreation.getId();

@@ -28,15 +28,6 @@
                     </option>
                 </select>
             </div>
-            <div class="infoLine">
-                <label for="creationSet" class="infoLineName">Set: </label>
-                <select id="creationSet" th:name="setId" class="infoLineValue">
-                    <option th:each="s:${sets}" th:value="${s.id}"
-                            th:text="${s.name}" th:selected="${s.id==creation.set.id}">
-                        one set
-                    </option>
-                </select>
-            </div>
             <div class="onefilter">
                 <input type="submit" value="save" class="buttonLook filterButton">
             </div>

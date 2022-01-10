@@ -9,6 +9,7 @@ public class Creator {
     @Id
     private int id;
     private String name;
+    private String imgSource;
     private String email;
 
     public Creator() {
@@ -33,6 +34,10 @@ public class Creator {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getImgSource() { return imgSource; }
+
+    public void setImgSource(String imgSource) { this.imgSource = imgSource; }
 
     public String getEmail() {
         return email;

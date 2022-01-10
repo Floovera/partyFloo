@@ -20,6 +20,7 @@
                 <div th:each="creation:${creations}">
                     <a class="buttonLook mediumButton" th:href="@{|/creationdetails/${creation.id}|}">
                         <span th:text="${creation.name}">creation name </span>
+                        <img th:src="@{|/${creation.imgSource}|}" alt="Foto">
                     </a>
                 </div>
             </div>

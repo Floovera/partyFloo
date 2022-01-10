@@ -20,14 +20,6 @@
                     <input id="creationName" th:field="*{name}" class="infoLineValue">
                 </div>
                 <div class="infoLine">
-                    <label for="set" class="infoLineName">set: </label>
-                    <select id="set" th:name="setId" class="infoLineValue">
-                        <option th:each="s:${sets}" th:value="${s.id}" th:text="${s.name}">
-                            one set
-                        </option>
-                    </select>
-                </div>
-                <div class="infoLine">
                     <label for="creator" class="infoLineName">creator: </label>
                     <select id="creator" th:name="creatorId" class="infoLineValue">
                         <option th:each="ct:${creators}" th:value="${ct.id}" th:text="${ct.name}">
