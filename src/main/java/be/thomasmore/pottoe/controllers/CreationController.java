@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -24,6 +25,19 @@ public class CreationController {
     public String creationList(Model model) {
         Iterable<Creation> creations = creationRepository.findAll();
         model.addAttribute("creations", creations);
+        return "creationlist";
+    }
+
+    @GetMapping("/creationlist/filter")
+    public String creationListFilter(Model model,
+                                     @RequestParam(required = false) String type) {
+
+        List<Creation> creations = creationRepository.findByType(type);
+
+        model.addAttribute("creations", creations);
+        model.addAttribute("showFilters", true);
+        model.addAttribute("type",type);
+
         return "creationlist";
     }
 

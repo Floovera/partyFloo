@@ -15,7 +15,25 @@
     <div class="row1content">
         <h2>Creaties</h2>
         <div class="cols2">
-            <div class="filters"></div>
+
+            <div th:unless="${showFilters}" class="filters">
+                <a class="buttonLook filterButton" th:href="@{/creationlist/filter}">filter</a>
+            </div>
+
+            <div th:if="${showFilters}" class="filters">
+                <a class="buttonLook filterButton" th:href="@{/creationlist}">-</a>
+                <form>
+                    <h3>Borden/Potjes/Tasjes</h3>
+                    <div class="onefilter">
+                        <label for="type" class="filtername">Type:</label>
+                        <input type="text" id="type" name="type" th:value="${type}" value="0">
+                    </div>
+                    <div class="onefilter">
+                        <input type="submit" value="search" class="buttonLook filterButton">
+                    </div>
+                </form>
+            </div>
+
             <div class="venuelist">
                 <div th:each="creation:${creations}">
                     <a class="buttonLook mediumButton" th:href="@{|/creationdetails/${creation.id}|}">
