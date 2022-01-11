@@ -76,6 +76,10 @@ public class CreationController {
         if (optionalCreation.isPresent()) {
             Creation editedCreation = optionalCreation.get();
             editedCreation.setName(creation.getName());
+            editedCreation.setType(creation.getType());
+            editedCreation.setExtraInfo(creation.getExtraInfo());
+            editedCreation.setPrice(creation.getPrice());
+            editedCreation.setCreator(creation.getCreator());
             creationRepository.save(editedCreation);
             model.addAttribute("creation",creation) ;
         }
