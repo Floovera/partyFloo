@@ -150,6 +150,9 @@ a.smallButton {
     display: block;
     font-size: 1em;
     padding: 0.5em;
+    margin-top:2em;
+    margin-bottom:2em;
+    width:10em;
 }
 
 a.menuButton {
@@ -235,6 +238,11 @@ input.buttonLook {
     text-decoration: none;
     text-align: center;
     box-shadow: 1px 1px 1px darkgrey;
+    margin-top: 2em;
+    margin-right:2em;
+    margin-bottom:2em;
+    margin-left:2em;
+    widht:10em;
 }
 
 input.filterButton {

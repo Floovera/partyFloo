@@ -1,15 +1,15 @@
 package be.thomasmore.pottoe.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class Creation {
 
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "creation_generator")
+    @SequenceGenerator(name = "creation_generator", sequenceName = "creation_seq", allocationSize = 1)
     @Id
-    private int id;
+    private Integer id;
     private String name;
     private String imgSource;
     private String extraInfo;
@@ -22,11 +22,11 @@ public class Creation {
     public Creation() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

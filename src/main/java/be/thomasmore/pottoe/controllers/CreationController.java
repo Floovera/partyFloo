@@ -95,10 +95,7 @@ public class CreationController {
 
     @PostMapping("/creationnew")
     public String creationNewPost(Model model,
-                               @ModelAttribute("creation") Creation creation,
-                               @RequestParam int creatorId) {
-
-        creation.setCreator(new Creator(creatorId));
+                               @ModelAttribute("creation") Creation creation) {
         Creation newCreation = creationRepository.save(creation);
         return "redirect:/creationdetails/" + newCreation.getId();
     }
