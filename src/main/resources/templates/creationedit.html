@@ -14,29 +14,36 @@
 
     <div class="row1content" th:if="${creation}">
 
+        <h2>Creatie bewerken</h2>
+
         <form th:action="@{|/creationedit/${creation.id}|}" th:object="${creation}" method="post">
-            <div class="onefilter">
-                <label for="creationName" class="filtername">Naam creatie:</label>
+
+            <div class="filters">
+                <a class="buttonLook filterButton" th:href="@{|/creationlist|}">Terug naar Overzicht</a>
+            </div>
+
+            <div class="infoLine">
+                <label for="creationName" class="infoLineName">Naam creatie:</label>
                 <input id="creationName" th:field="*{name}">
             </div>
 
-            <div class="onefilter">
-                <label for="creationType" class="filtername">Type creatie:</label>
+            <div class="infoLine">
+                <label for="creationType" class="infoLineName">Type creatie:</label>
                 <input id="creationType" th:field="*{type}">
             </div>
 
-            <div class="onefilter">
-                <label for="creationInfo" class="filtername">Extra info creatie:</label>
+            <div class="infoLine">
+                <label for="creationInfo" class="infoLineName">Extra info creatie:</label>
                 <input id="creationInfo" th:field="*{extraInfo}">
             </div>
 
-            <div class="onefilter">
-                <label for="creationImgSource" class="filtername">Locatie afbeelding:</label>
+            <div class="infoLine">
+                <label for="creationImgSource" class="infoLineName">Locatie afbeelding:</label>
                 <input id="creationImgSource" th:field="*{imgSource}">
             </div>
 
-            <div class="onefilter">
-                <label for="creationPrice" class="filtername">Prijs creatie:</label>
+            <div class="infoLine">
+                <label for="creationPrice" class="infoLineName">Prijs creatie:</label>
                 <input id="creationPrice" th:field="*{price}">
             </div>
 
@@ -50,7 +57,7 @@
                 </select>
             </div>
             <div class="onefilter">
-                <input type="submit" value="save" class="buttonLook filterButton">
+                <input type="submit" value="Opslaan" class="buttonLook filterButton">
             </div>
         </form>
 

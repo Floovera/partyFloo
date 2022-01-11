@@ -16,6 +16,10 @@
 
         <h2 th:text="${creator.name}">naam</h2>
 
+        <div class="filters">
+            <a class="buttonLook filterButton" th:href="@{|/about|}">Terug naar 'Over ons'</a>
+        </div>
+
         <div class="venueinfo">
             <div class="infoLine" th:if="${creator.email}">
                 <div class="infoLineName">Email</div>
