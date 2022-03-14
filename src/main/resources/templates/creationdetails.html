@@ -14,7 +14,7 @@
 
     <div class="row1content" th:if="${creation}">
 
-        <h2 th:text="${creation.name}">naam</h2>
+        <h2 id="name" th:text="${creation.name}">naam</h2>
 
         <div class="filters">
             <a class="buttonLook filterButton" th:href="@{|/creationlist|}">Terug naar Overzicht</a>
@@ -23,19 +23,19 @@
         <div class="venueinfo">
             <div class="infoLine" th:if="${creation.type}">
                 <div class="infoLineName">Type</div>
-                <div class="infoLineValue" th:text="${creation.type}">type</div>
+                <div id="type" class="infoLineValue" th:text="${creation.type}">type</div>
             </div>
             <div class="infoLine" th:if="${creation.extraInfo}">
                 <div class="infoLineName">Extra info</div>
-                <div class="infoLineValue" th:text="${creation.extraInfo}">extraInfo</div>
+                <div id="info" class="infoLineValue" th:text="${creation.extraInfo}">extraInfo</div>
             </div>
             <div class="infoLine" th:if="${creation.price}">
                 <div class="infoLineName">Prijs (in euro):</div>
-                <div class="infoLineValue" th:text="${creation.price}">prijs</div>
+                <div id="price" class="infoLineValue" th:text="${creation.price}">prijs</div>
             </div>
             <div class="infoLine">
                 <div class="infoLineName">Gemaakt door:</div>
-                <div class="infoLineValue" th:text="${creation.getCreator().getName()}">creator</div>
+                <div id="creator" class="infoLineValue" th:text="${creation.getCreator().getName()}">creator</div>
             </div>
 
             <div class="filters">
